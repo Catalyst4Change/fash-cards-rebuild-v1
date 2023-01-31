@@ -1,0 +1,18 @@
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.carousel {
+  position: absolute;
+  display: flex;
+  /* gap: 25px; */
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 56%;
+  transform: translateX(-50%);
+}

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom"
+import { About } from "./About/About"
+import "./App.css"
+import { Game } from "./Game/Game"
+import { Home } from "./Home/Home"
+import { NewGame } from "./NewGame/NewGame"
+import { Store } from "./Context.js"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div id="app">
+      <header>
+        <h1 id="banner" className="row">
+          Fash-Cards
+        </h1>
       </header>
+
+      <main>
+        <Store>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/newgame" element={<NewGame />} />
+            <Route path="/game" element={<Game />} />
+          </Routes>
+        </Store>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
