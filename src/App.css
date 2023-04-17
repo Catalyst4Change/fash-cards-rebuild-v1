@@ -6,7 +6,7 @@ h1 {
   font-size: 1.2em;
   background-color: rgb(186, 202, 218);
   width: 400px;
-  height: 100vh;
+  height: 100%;
 }
 .column {
   display: flex;

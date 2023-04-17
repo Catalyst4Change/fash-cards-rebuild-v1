@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import { About } from "./About/About"
-import "./App.css"
 import { Game } from "./Game/Game"
 import { Home } from "./Home/Home"
 import { NewGame } from "./NewGame/NewGame"
 import { Store } from "./Context.js"
+import "./App.css"
 
 function App() {
   return (

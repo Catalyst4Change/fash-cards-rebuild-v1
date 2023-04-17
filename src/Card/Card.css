@@ -43,15 +43,19 @@
 .card-answers {
   width: 100%;
 }
+
 .card-options {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
   width: 290px;
 }
 
 .option-icons {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 5%;
 }
 
 .icon {

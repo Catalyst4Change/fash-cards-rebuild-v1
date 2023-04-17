@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react"
-import "./Card.css"
-import "../App.css"
 import { AnswerButtons } from "../components/AnswerButton/AnswerButtons"
 import { Carousel } from "../Context"
+import "./Card.css"
+import "../App.css"
 
 export const Card = ({ card, i }) => {
   const [flipped, setFlipped] = useState(false)
@@ -49,6 +49,12 @@ export const Card = ({ card, i }) => {
 
       {/* card options */}
       <section className="card-options">
+        <div className="option-icons">
+          <div className="save-button icon">💾</div>
+          <div onClick={flipCard} className="flip-button icon">
+            🔄
+          </div>
+        </div>
         <div className="card-answers">
           {!flipped && (
             <AnswerButtons
@@ -61,12 +67,6 @@ export const Card = ({ card, i }) => {
               Next Card
             </button>
           )}
-        </div>
-        <div className="option-icons">
-          <span className="save-button icon">💾</span>
-          <span onClick={flipCard} className="flip-button icon">
-            🔄
-          </span>
         </div>
       </section>
     </main>
