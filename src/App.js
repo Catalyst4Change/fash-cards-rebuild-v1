@@ -8,14 +8,14 @@ import { Store } from "./Context.js"
 
 function App() {
   return (
-    <div id="app">
+    <main id="app">
       <header>
         <h1 id="banner" className="row">
           Fash-Cards
         </h1>
       </header>
 
-      <main>
+      <section className="main-container">
         <Store>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -24,8 +24,8 @@ function App() {
             <Route path="/game" element={<Game />} />
           </Routes>
         </Store>
-      </main>
-    </div>
+      </section>
+    </main>
   )
 }
 

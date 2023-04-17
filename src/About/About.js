@@ -4,7 +4,7 @@ import "../App.css"
 
 export const About = () => {
   return (
-    <section id="about" className="column">
+    <main id="about" className="column">
       <h2>About</h2>
       <p>
         This app was made from the Hate Symbols Database maintained by the
@@ -16,10 +16,11 @@ export const About = () => {
       </p>
       <p>
         As a patriotic antifascist, I feel it is my duty to educate and inspire
-        my country to recognize the threat posed by white supremacist ideology
-        and organizations. Use this app as a tool to quickly recognize the signs
-        & symbols of increasingly bold hate-groups. You may be unpleasantly
-        surprised how many are present in plain view on any given day.
+        my country to recognize the threat posed by fascist & white supremacist
+        ideologies and organizations. Use this app as a tool to quickly
+        recognize the signs & symbols of increasingly bold hate-groups. You may
+        be unpleasantly surprised how many are present in plain view on any
+        given day.
       </p>
       <p>
         Unfortunately the data from ADL is a little outdated and far from
@@ -29,9 +30,13 @@ export const About = () => {
         taken to quantify and label these organizations.
       </p>
       <Link to="/">
-        <button>Home</button>
+        <button className="menu-button">Back</button>
       </Link>
-      <button href="https://www.adl.org/">ADL.ORG</button>
-    </section>
+      <form action="https://www.adl.org/" method="get" target="_blank">
+        <button className="menu-button" type="submit">
+          ADL.ORG
+        </button>
+      </form>
+    </main>
   )
 }

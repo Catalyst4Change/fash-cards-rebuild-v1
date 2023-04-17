@@ -1,6 +1,13 @@
 h1 {
   margin: 0;
 }
+
+#app {
+  font-size: 1.2em;
+  background-color: rgb(186, 202, 218);
+  width: 400px;
+  height: 100vh;
+}
 .column {
   display: flex;
   flex-direction: column;
@@ -39,16 +46,6 @@ html {
   margin: 0;
 }
 
-button {
-  font-size: 1.5em;
-  width: 100%;
-  min-width: 200px;
-  margin-top: 5px;
-  border-radius: 0.5em;
-  border: none;
-  box-shadow: 5px 5px 10px black;
-}
-
 #banner {
   background-color: black;
   color: white;
@@ -57,14 +54,17 @@ button {
 
 #about {
   padding: 5%;
+  background-color: rgb(186, 202, 218);
 }
 #new-game {
   padding: 5%;
 }
 
-#app {
-  font-size: 1.2em;
-  background-color: rgb(186, 202, 218);
-  width: 400px;
-  min-height: 100vh;
+.menu-button {
+  font-size: 1.5em;
+  width: 200px;
+  margin-bottom: 10%;
+  border-radius: 0.5em;
+  border: none;
+  box-shadow: 5px 5px 10px black;
 }

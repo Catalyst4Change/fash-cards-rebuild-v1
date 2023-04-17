@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import "./Card.css"
 import "../App.css"
-import { AnswerButtons } from "../components/AnswerButtons"
+import { AnswerButtons } from "../components/AnswerButton/AnswerButtons"
 import { Carousel } from "../Context"
 
 export const Card = ({ card, i }) => {
@@ -33,7 +33,8 @@ export const Card = ({ card, i }) => {
       style={{ transform: `translateX(-${carouselIndex * 100}%` }}
       className="card-container"
     >
-      <section className={`card ${flipped ? "flip" : ""}`}>
+      {/* card itself */}
+      <section className={`card  ${flipped ? "flip" : ""}`}>
         <div className="front">
           <div className="card-image-container">
             <img className="card-image" src={card.image} alt="hate symbol" />
@@ -46,22 +47,27 @@ export const Card = ({ card, i }) => {
         </div>
       </section>
 
-      <section className="row">
-        <div className="card-answers column ">
+      {/* card options */}
+      <section className="card-options">
+        <div className="card-answers">
           {!flipped && (
             <AnswerButtons
               correctAnswer={card.symbol}
               checkCorrect={checkCorrect}
             />
           )}
-          {flipped && <button onClick={advanceCard}>Done</button>}
+          {flipped && (
+            <button className="answer-button" onClick={advanceCard}>
+              Next Card
+            </button>
+          )}
         </div>
-        <span className="column">
+        <div className="option-icons">
           <span className="save-button icon">💾</span>
           <span onClick={flipCard} className="flip-button icon">
             🔄
           </span>
-        </span>
+        </div>
       </section>
     </main>
   )

@@ -1,5 +1,8 @@
 .card-container {
   transition: 500ms;
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
 }
 
 .card {
@@ -11,7 +14,7 @@
   height: 400px;
   border-radius: 1em;
   width: 290px;
-  margin-left: 50px;
+  margin: 5% auto;
   transform-style: preserve-3d;
   transition: 500ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -38,7 +41,17 @@
 }
 
 .card-answers {
-  width: 245px;
+  width: 100%;
+}
+.card-options {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 290px;
+}
+
+.option-icons {
+  margin: 0 auto;
 }
 
 .icon {

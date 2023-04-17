@@ -15,24 +15,23 @@ export const NewGame = () => {
         later.
       </p>
       <p>
-        Clicking at any time 🔄 will flip the card to see the information or
+        Clicking 🔄 at any time will flip the card to see the information or
         image.
       </p>
       <p>
         Many of the symbols are unsubtle and can be guessed easily. In these
         cases I encourage you to flip an unfamiliar card to read about the
-        symbol's origins.{" "}
+        symbol's origins.
       </p>
       <p>
-        {" "}
         The objective of this exercise is not to 'win', but to expose yourself
         to fascistic symbology and recognize it in the world.
       </p>
       <Link to="/game">
-        <button>Start</button>
+        <button className="menu-button">Start</button>
       </Link>
       <Link to="/">
-        <button>Home</button>
+        <button className="menu-button">Back</button>
       </Link>
     </section>
   )

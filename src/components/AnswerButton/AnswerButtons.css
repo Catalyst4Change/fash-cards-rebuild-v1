@@ -1,0 +1,8 @@
+.answer-button {
+  font-size: 1.5em;
+  width: 90%;
+  margin-top: 5px;
+  border-radius: 0.5em;
+  border: none;
+  box-shadow: 5px 5px 10px black;
+}

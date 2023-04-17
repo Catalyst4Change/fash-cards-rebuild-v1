@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
-import { Database } from "../Context"
-import { shuffle } from "./shuffle.func"
+import { Database } from "../../Context"
+import { shuffle } from "../shuffle.func"
+import "./AnswerButtons.css"
 
 export const AnswerButtons = ({ correctAnswer, checkCorrect }) => {
   const [data] = useContext(Database)
@@ -18,6 +19,7 @@ export const AnswerButtons = ({ correctAnswer, checkCorrect }) => {
     return (
       <button
         key={"button" + index}
+        className="answer-button"
         id={button}
         onClick={(event) => checkCorrect(event, correctAnswer)}
       >
