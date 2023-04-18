@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react"
-import "../App.css"
+import "../App.scss"
 import "./Game.css"
 import { Timer } from "../components/Timer/Timer"
 import { CardsContainer } from "../CardsContainer/CardsContainer"

@@ -1,19 +1,15 @@
 import React, { useState, useContext } from "react"
 import { AnswerButtons } from "../components/AnswerButton/AnswerButtons"
-import { Carousel } from "../Context"
-import "./Card.css"
-import "../App.css"
+import { Carousel } from "../Context/Context"
+import { StudyList } from "../Context/Context"
 
-export const Card = ({
-  card,
-  i,
-  answered,
-  setAnswered,
-  correct,
-  setCorrect,
-}) => {
+import "./Card.css"
+import "../App.scss"
+
+export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [flipped, setFlipped] = useState(false)
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
+  const [toStudyList, setToStudyList] = useContext(StudyList)
 
   const flipCard = () => {
     setFlipped((flipped) => !flipped)
@@ -33,6 +29,14 @@ export const Card = ({
       setFlipped((flipped) => !flipped)
 
       // answerWrong()
+    }
+  }
+
+  const addCardToStudyList = (event) => {
+    if (!toStudyList.includes(card)) {
+      setToStudyList([...toStudyList, card])
+
+      // add to local storage
     }
   }
 
@@ -58,7 +62,12 @@ export const Card = ({
       {/* card options */}
       <section className="card-options">
         <div className="option-icons">
-          <div className="save-button icon">💾</div>
+          <div
+            className="save-button icon"
+            onClick={(event) => addCardToStudyList(event)}
+          >
+            💾
+          </div>
           <div onClick={flipCard} className="flip-button icon">
             🔄
           </div>

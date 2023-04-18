@@ -1,5 +1,6 @@
 import React from "react"
 import "./GameOver.css"
+import { Link } from "react-router-dom"
 
 export const GameOver = ({
   answered,
@@ -29,7 +30,9 @@ export const GameOver = ({
       <button className="menu-button" onClick={restartGame}>
         Start Over
       </button>
-      <button className="menu-button">Study Hall</button>
+      <Link to="/study-hall">
+        <button className="menu-button">Study Hall</button>
+      </Link>
       <button className="menu-button">Visit the ADL</button>
     </main>
   )

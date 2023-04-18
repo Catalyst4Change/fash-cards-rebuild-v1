@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Database } from "../../Context"
+import { Database } from "../../Context/Context"
 import { shuffle } from "../shuffle.func"
 import "./AnswerButtons.css"
 

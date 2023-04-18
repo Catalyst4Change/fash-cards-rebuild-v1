@@ -3,9 +3,10 @@ import { About } from "./About/About"
 import { Game } from "./Game/Game"
 import { Home } from "./Home/Home"
 import { NewGame } from "./NewGame/NewGame"
-import { Store } from "./Context.js"
+import { Store } from "./Context/Context.js"
 import { GameOver } from "./GameOver/GameOver"
-import "./App.css"
+import "./App.scss"
+import { StudyHall } from "./StudyHall/StudyHall"
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/newgame" element={<NewGame />} />
+            <Route path="/new-game" element={<NewGame />} />
+            <Route path="/study-hall" element={<StudyHall />} />
             <Route path="/game" element={<Game />} />
             <Route path="/game-over" element={<GameOver />} />
           </Routes>
