@@ -1,11 +1,13 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { Card } from "../Card/Card"
 import { Database } from "../Context"
 import "../App.css"
 import "./Game.css"
+import { Timer } from "../components/Timer/Timer"
 
 export const Game = () => {
   const [data] = useContext(Database)
+  const [gameOver, setGameOver] = useState(false)
 
   const displayCards = () => {
     return data.map((card, i) => {
@@ -13,5 +15,10 @@ export const Game = () => {
     })
   }
 
-  return <section className="carousel">{displayCards()}</section>
+  return (
+    <main>
+      <Timer setGameOver={setGameOver} />
+      <section className="carousel">{displayCards()}</section>
+    </main>
+  )
 }

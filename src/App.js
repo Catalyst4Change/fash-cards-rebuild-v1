@@ -4,6 +4,7 @@ import { Game } from "./Game/Game"
 import { Home } from "./Home/Home"
 import { NewGame } from "./NewGame/NewGame"
 import { Store } from "./Context.js"
+import { GameOver } from "./GameOver/GameOver"
 import "./App.css"
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/newgame" element={<NewGame />} />
             <Route path="/game" element={<Game />} />
+            <Route path="/game-over" element={<GameOver />} />
           </Routes>
         </Store>
       </section>
