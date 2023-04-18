@@ -76,5 +76,11 @@
   display: block;
   max-width: 250px;
   height: min-content;
+  max-height: 350px;
+  width: 100%;
+}
+
+.answers-menu {
+  border: 3px red dashed;
   width: 100%;
 }

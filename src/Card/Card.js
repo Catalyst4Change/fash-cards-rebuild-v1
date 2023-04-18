@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react"
-import { Carousel } from "../Context/Context"
-import { StudyList } from "../Context/Context"
-import { Database } from "../Context/Context"
 import { shuffle } from "../components/shuffle.func"
+import { StudyList } from "../Context/Context"
+import { Carousel } from "../Context/Context"
+import { Database } from "../Context/Context"
 
-import "./Card.css"
 import "../App.scss"
+import "./Card.css"
 
 export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
@@ -41,26 +41,22 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   }
 
   const [answers, setAnswers] = useState([])
-  let answerButtons = []
 
   const createAnswersList = () => {
-    console.log("createAnswersList")
-    setAnswers([...answers, card.symbol])
-    while (answers.length < 4) {
+    const answersCopy = [card.symbol]
+    while (answersCopy.length < 4) {
       const random = Math.floor(Math.random() * 213)
-      console.log("random", random)
       const randomAnswer = data[random].symbol
-      console.log("randomAnswer", randomAnswer)
-      if (!answers.includes(randomAnswer)) {
-        console.log("!answers")
-        setAnswers([...answers, randomAnswer])
+      if (!answersCopy.includes(randomAnswer)) {
+        answersCopy.push(randomAnswer)
       }
     }
+    setAnswers(answersCopy)
   }
 
   const createAnswerButtons = () => {
     return shuffle(answers).map((button, index) => {
-      answerButtons.push(
+      return (
         <button
           key={"button" + index}
           className="menu-button"
@@ -70,13 +66,11 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           {button}
         </button>
       )
-      return button
     })
   }
 
   useEffect(() => {
     createAnswersList()
-    createAnswerButtons()
   }, [data])
 
   return (
@@ -97,7 +91,6 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
       </section>
-
       {/* card options */}
       <section className="card-options">
         <div className="option-icons">
@@ -111,8 +104,14 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
             🔄
           </div>
         </div>
+        {flipped ? (
+          <button className="menu-button" onClick={advanceCard}>
+            Next
+          </button>
+        ) : (
+          <div className="card-options">{createAnswerButtons()}</div>
+        )}
       </section>
-      <div>{answerButtons}</div>
     </main>
   )
 }

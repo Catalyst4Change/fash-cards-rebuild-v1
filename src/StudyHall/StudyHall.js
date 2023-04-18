@@ -11,16 +11,34 @@ export const StudyHall = () => {
 
   const displayCardsToStudy = () => {
     return toStudyList.map((card, i) => {
-      console.log(card.symbol)
       return (
         <article className="study-card" key={i}>
           <h2>{card.symbol}</h2>
           <img src={card.image} alt={`${card.symbol} symbol`} />
           <p>{card.desc}</p>
-          <nav>❌</nav>
+          <button
+            value={i}
+            onClick={removeCardFromList}
+            className="menu-button delete-button"
+          >
+            Delete
+          </button>
         </article>
       )
     })
+  }
+
+  const removeCardFromList = (event) => {
+    const indexToRemove = parseInt(event.target.value)
+    const listCopy = toStudyList
+
+    const removeCard = listCopy.filter((card, index) => {
+      if (index !== indexToRemove) {
+        return true
+      }
+    })
+
+    setToStudyList(removeCard)
   }
 
   return (
@@ -31,11 +49,11 @@ export const StudyHall = () => {
         </p>
       )}
       <div>{displayCardsToStudy()}</div>
-      <nav className="nav-menu column">
+      <div className="column center">
         <Link to="/">
           <button className="menu-button">Back</button>
         </Link>
-      </nav>
+      </div>
     </main>
   )
 }
