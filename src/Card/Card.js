@@ -32,7 +32,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     }
   }
 
-  const addCardToStudyList = (event) => {
+  const addCardToStudyList = () => {
     if (!toStudyList.includes(card)) {
       setToStudyList([...toStudyList, card])
 

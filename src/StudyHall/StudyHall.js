@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { StudyList } from "../Context/Context"
 import { Link } from "react-router-dom"
-import "../app.scss"
-import "./StudyHall.css"
+import "../App.scss"
+import "./StudyHall.scss"
 
 export const StudyHall = () => {
   const [toStudyList, setToStudyList] = useContext(StudyList)
@@ -24,9 +24,14 @@ export const StudyHall = () => {
   }
 
   return (
-    <main>
+    <main id="study-hall">
+      {toStudyList.length === 0 && (
+        <p>
+          Click on the 💾 icon under a flash card to save it to your study list.
+        </p>
+      )}
       <div>{displayCardsToStudy()}</div>
-      <nav className="column">
+      <nav className="nav-menu column">
         <Link to="/">
           <button className="menu-button">Back</button>
         </Link>

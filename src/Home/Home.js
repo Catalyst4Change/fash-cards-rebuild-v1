@@ -6,7 +6,7 @@ export const Home = () => {
   return (
     <main className="column">
       <span id="logo">🤬</span>
-      <nav className="column">
+      <nav className="nav-menu">
         <Link to="/new-game">
           <button className="menu-button">New Game</button>
         </Link>

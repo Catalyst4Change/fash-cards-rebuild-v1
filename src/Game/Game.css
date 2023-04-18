@@ -1,9 +1,8 @@
 .carousel {
-  background-color: rgb(186, 202, 218);
-
   width: 400px;
   display: flex;
   flex-direction: row;
   position: absolute;
   overflow: hidden;
+  background: lightblue;
 }

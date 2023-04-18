@@ -1,6 +1,7 @@
 import React from "react"
 import "./GameOver.css"
 import { Link } from "react-router-dom"
+import "../App.scss"
 
 export const GameOver = ({
   answered,
@@ -27,13 +28,15 @@ export const GameOver = ({
         {calculateCorrectRatio()}%.
       </p>
       <p>Keep up the good work, comrade.</p>
-      <button className="menu-button" onClick={restartGame}>
-        Start Over
-      </button>
-      <Link to="/study-hall">
-        <button className="menu-button">Study Hall</button>
-      </Link>
-      <button className="menu-button">Visit the ADL</button>
+      <nav className="nav-menu">
+        <button className="menu-button" onClick={restartGame}>
+          Start Over
+        </button>
+        <Link to="/study-hall">
+          <button className="menu-button">Study Hall</button>
+        </Link>
+        <button className="menu-button">Visit the ADL</button>
+      </nav>
     </main>
   )
 }

@@ -1,18 +1,40 @@
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
   margin: 0;
 }
 
+html {
+  margin: 0;
+}
+
+p {
+  padding: 0 5%;
+}
+
 #app {
   font-size: 1.2em;
-  background-color: rgb(186, 202, 218);
+  background: lightblue;
+  background-repeat: repeat;
   width: 400px;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
 }
 .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .row {
@@ -30,42 +52,31 @@ h1 {
   font-size: 13em;
 }
 
-body {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(2, 0, 36, 1) 100%
-  );
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-  margin: 0;
-}
-
 #banner {
   background-color: black;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#about {
-  padding: 5%;
-  background-color: rgb(186, 202, 218);
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0%;
+  height: fit-content;
+  width: 400px;
 }
-#new-game {
-  padding: 5%;
-}
-
 .menu-button {
   background-color: white;
   font-size: 1.5em;
-  width: 200px;
-  margin-bottom: 10%;
+  width: 250px;
+  margin: 0 auto 5% auto;
   border-radius: 0.5em;
   border: none;
   box-shadow: 5px 5px 10px black;
+}
+Link {
+  all: unset;
 }
