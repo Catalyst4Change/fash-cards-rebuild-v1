@@ -76,6 +76,7 @@
   display: block;
   max-width: 250px;
   height: min-content;
+  max-height: 350px;
   width: 100%;
 }
 
