@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react"
 import "./Timer.css"
 
-export const Timer = ({ timer, setTimer }) => {
+export const Timer = ({ resetTimer, setResetTimer, setGameOver }) => {
   const [seconds, setSeconds] = useState(60)
+
   seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000)
 
   if (seconds === 0) {
-    window.location = "/game-over"
+    setGameOver(true)
+  }
+
+  if (resetTimer) {
+    setSeconds(60)
+    setResetTimer(false)
   }
 
   return (

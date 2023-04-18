@@ -1,24 +1,42 @@
-import React, { useContext, useState } from "react"
-import { Card } from "../Card/Card"
-import { Database } from "../Context"
+import React, { useContext, useRef, useState } from "react"
 import "../App.css"
 import "./Game.css"
 import { Timer } from "../components/Timer/Timer"
+import { CardsContainer } from "../CardsContainer/CardsContainer"
+import { GameOver } from "../GameOver/GameOver"
 
 export const Game = () => {
-  const [data] = useContext(Database)
+  const [answered, setAnswered] = useState(0)
+  const [correct, setCorrect] = useState(0)
   const [gameOver, setGameOver] = useState(false)
-
-  const displayCards = () => {
-    return data.map((card, i) => {
-      return <Card key={i} card={card} i={i} />
-    })
-  }
+  const [resetTimer, setResetTimer] = useState(false)
 
   return (
     <main>
-      <Timer setGameOver={setGameOver} />
-      <section className="carousel">{displayCards()}</section>
+      {gameOver ? (
+        <GameOver
+          answered={answered}
+          setAnswered={setAnswered}
+          correct={correct}
+          setCorrect={setCorrect}
+          setGameOver={setGameOver}
+          setResetTimer={setResetTimer}
+        />
+      ) : (
+        <>
+          <Timer
+            resetTimer={resetTimer}
+            setResetTimer={setResetTimer}
+            setGameOver={setGameOver}
+          />
+          <CardsContainer
+            answered={answered}
+            setAnswered={setAnswered}
+            correct={correct}
+            setCorrect={setCorrect}
+          />
+        </>
+      )}
     </main>
   )
 }

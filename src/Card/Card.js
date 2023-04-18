@@ -4,7 +4,14 @@ import { Carousel } from "../Context"
 import "./Card.css"
 import "../App.css"
 
-export const Card = ({ card, i }) => {
+export const Card = ({
+  card,
+  i,
+  answered,
+  setAnswered,
+  correct,
+  setCorrect,
+}) => {
   const [flipped, setFlipped] = useState(false)
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
 
@@ -17,9 +24,10 @@ export const Card = ({ card, i }) => {
   }
 
   const checkCorrect = (event, symbol) => {
-    console.log(event.target.id, symbol)
+    setAnswered((answered += 1))
     event.preventDefault()
     if (event.target.id === symbol) {
+      setCorrect((correct += 1))
       advanceCard()
     } else {
       setFlipped((flipped) => !flipped)
