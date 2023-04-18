@@ -25,7 +25,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     setAnswered((answered += 1))
     event.preventDefault()
     if (event.target.id === symbol) {
-      setCorrect((correct += 1))
+      setCorrect((correct) => (correct += 1))
       advanceCard()
     } else {
       setFlipped((flipped) => !flipped)
@@ -44,18 +44,16 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   let answerButtons = []
 
   const createAnswersList = () => {
-    console.log("createAnswersList")
-    setAnswers([...answers, card.symbol])
-    while (answers.length < 4) {
+    const answersCopy = [...answers, card.symbol]
+    while (answersCopy.length < 4) {
       const random = Math.floor(Math.random() * 213)
-      console.log("random", random)
       const randomAnswer = data[random].symbol
-      console.log("randomAnswer", randomAnswer)
-      if (!answers.includes(randomAnswer)) {
+      if (!answersCopy.includes(randomAnswer)) {
         console.log("!answers")
-        setAnswers([...answers, randomAnswer])
+        answersCopy.push(randomAnswer)
       }
     }
+    setAnswers(answersCopy)
   }
 
   const createAnswerButtons = () => {
