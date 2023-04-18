@@ -17,9 +17,16 @@ export const GameOver = ({
     setGameOver(false)
     setResetTimer(true)
   }
+
   const calculateCorrectRatio = () => {
-    return ((correct / answered) * 100).toFixed(0)
+    const correctRatio = ((correct / answered) * 100).toFixed(0)
+    if (correctRatio >= 0) {
+      return correctRatio
+    } else {
+      return 0
+    }
   }
+
   return (
     <main id="game-over" className="column">
       <h2>Out of time.</h2>
