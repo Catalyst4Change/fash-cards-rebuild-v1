@@ -1,12 +1,25 @@
-.study-card {
+#study-hall {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 1em;
-  width: 290px;
-  margin: 5% auto;
-  padding: 5%;
-  box-shadow: 5px 5px 10px black;
+  // align-items: center;
+  .study-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 1em;
+    width: 290px;
+    margin: 5% auto;
+    padding: 5%;
+    box-shadow: 5px 5px 10px black;
+    .delete-button {
+      background-color: firebrick;
+      color: white;
+    }
+  }
+  // .menu-button {
+  //   position: sticky;
+  //   top: 90%;
+  // }
 }
