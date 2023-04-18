@@ -78,3 +78,8 @@
   height: min-content;
   width: 100%;
 }
+
+.answers-menu {
+  border: 3px red dashed;
+  width: 100%;
+}
