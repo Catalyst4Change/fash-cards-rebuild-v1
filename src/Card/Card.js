@@ -87,7 +87,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         <div className="back">
-          <p className="card-description">{card.desc}</p>
+          <p className="card-description">
+            {card.desc}
+            <div className="scroll-shadow" />
+          </p>
         </div>
       </section>
       {/* card options */}
