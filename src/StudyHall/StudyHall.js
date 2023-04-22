@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { StudyList } from "../Context/Context"
 import { Link } from "react-router-dom"
 import "../App.scss"
@@ -6,6 +6,28 @@ import "./StudyHall.scss"
 
 export const StudyHall = () => {
   const [toStudyList, setToStudyList] = useContext(StudyList)
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("saved-fash-cards")) === null) {
+      console.log("empty storage")
+      syncLocalStorageToStudyList()
+    } else {
+      console.log("occupied storage")
+      syncStudyListToLocalStorage()
+    }
+  }, [])
+
+  const syncStudyListToLocalStorage = () => {
+    setToStudyList(JSON.parse(localStorage.getItem("saved-fash-cards")))
+  }
+
+  const syncLocalStorageToStudyList = () => {
+    localStorage.setItem("saved-fash-cards", JSON.stringify(toStudyList))
+  }
+
+  useEffect(() => {
+    syncLocalStorageToStudyList()
+  }, [toStudyList])
 
   // remove card from context list
 

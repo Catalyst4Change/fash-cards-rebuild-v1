@@ -41,6 +41,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     }
   }
 
+  useEffect(() => {
+    localStorage.setItem("saved-fash-cards", JSON.stringify(toStudyList))
+  }, [toStudyList])
+
   const [answers, setAnswers] = useState([])
 
   const createAnswersList = () => {
