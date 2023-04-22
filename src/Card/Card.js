@@ -79,7 +79,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   }, [data])
 
   const generateHTMLLink = () => {
-    const symbolLink = card.symbol.toLowerCase().replace(" ", "-")
+    const symbolLink = card.symbol.toLowerCase().replaceAll(" ", "-")
     return `https://www.adl.org/resources/hate-symbol/${symbolLink}`
   }
 
