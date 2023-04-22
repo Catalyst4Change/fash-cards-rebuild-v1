@@ -78,6 +78,8 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     createAnswersList()
   }, [data])
 
+  // necessary because I did not absorb links on my first scrape of ADL
+  // since then their site has broken in a way that would make additional scrapes counterproductive
   const generateHTMLLink = () => {
     const symbolLink = card.symbol.toLowerCase().replaceAll(" ", "-")
     return `https://www.adl.org/resources/hate-symbol/${symbolLink}`

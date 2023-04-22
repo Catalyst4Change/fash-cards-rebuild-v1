@@ -29,7 +29,6 @@
     }
     .front {
       padding: 10%;
-
       position: absolute;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -38,15 +37,19 @@
       padding: 10% 5%;
       position: absolute;
       transform: rotateY(180deg);
-      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-
+      -webkit-backface-visibility: hidden;
+      perspective: 0;
+      -webkit-perspective: 0;
+      -webkit-transform: rotateY(180deg);
+      visibility: visible;
       .card-description {
         height: 350px;
         overflow: scroll;
         visibility: visible;
         width: auto;
         .scroll-shadow {
+          position: -webkit-sticky;
           position: sticky;
           bottom: 0;
           height: 1em;
