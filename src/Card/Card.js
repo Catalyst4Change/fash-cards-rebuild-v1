@@ -41,6 +41,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     }
   }
 
+  useEffect(() => {
+    localStorage.setItem("saved-fash-cards", JSON.stringify(toStudyList))
+  }, [toStudyList])
+
   const [answers, setAnswers] = useState([])
 
   const createAnswersList = () => {
@@ -74,6 +78,11 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
     createAnswersList()
   }, [data])
 
+  const generateHTMLLink = () => {
+    const symbolLink = card.symbol.toLowerCase().replaceAll(" ", "-")
+    return `https://www.adl.org/resources/hate-symbol/${symbolLink}`
+  }
+
   return (
     <main
       style={{ transform: `translateX(-${carouselIndex * 100}%` }}
@@ -87,7 +96,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         <div className="back">
-          <p className="card-description">{card.desc}</p>
+          <span className="card-description">
+            {card.desc}
+            <div className="scroll-shadow" />
+          </span>
         </div>
       </section>
       {/* card options */}
@@ -107,9 +119,16 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         {flipped ? (
-          <button className="menu-button" onClick={advanceCard}>
-            Next
-          </button>
+          <>
+            <button className="menu-button" onClick={advanceCard}>
+              Next
+            </button>
+            <button className="menu-button">
+              <a target="_blank" href={generateHTMLLink()}>
+                Read More
+              </a>
+            </button>
+          </>
         ) : (
           <div className="card-options">{createAnswerButtons()}</div>
         )}

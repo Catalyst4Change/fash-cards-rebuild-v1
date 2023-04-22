@@ -1,3 +1,5 @@
+@import "../App.scss";
+
 .card-container {
   transition: 500ms;
   display: flex;
@@ -14,7 +16,7 @@
     background-color: white;
     height: 400px;
     border-radius: 1em;
-    width: 290px;
+    width: $card-width;
     margin: 5% auto;
     transform-style: preserve-3d;
     transition: 500ms;
@@ -33,15 +35,24 @@
       backface-visibility: hidden;
     }
     .back {
-      padding: 10%;
+      padding: 10% 5%;
       position: absolute;
       transform: rotateY(180deg);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+
       .card-description {
+        height: 350px;
+        overflow: scroll;
         visibility: visible;
         width: auto;
-        height: auto;
+        .scroll-shadow {
+          position: sticky;
+          bottom: 0;
+          height: 1em;
+          width: 100%;
+          box-shadow: 0 -2em 2em -1em white inset;
+        }
       }
     }
   }
@@ -55,7 +66,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 290px;
+  width: $card-width;
 }
 
 .option-icons {
@@ -80,15 +91,7 @@
 
 .card-image {
   display: block;
-  max-width: 250px;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
+  aspect-ratio: auto;
   max-height: 350px;
-  width: 100%;
-}
-
-.answers-menu {
-  border: 3px red dashed;
   width: 100%;
 }
