@@ -78,3 +78,7 @@ p {
   border: none;
   box-shadow: 5px 5px 10px black;
 }
+
+.greyed-out {
+  filter: grayscale(1);
+}

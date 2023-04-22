@@ -5,16 +5,17 @@ import { Carousel } from "../Context/Context"
 import { Database } from "../Context/Context"
 
 import "../App.scss"
-import "./Card.css"
+import "./Card.scss"
 
 export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
   const [toStudyList, setToStudyList] = useContext(StudyList)
   const [data] = useContext(Database)
   const [flipped, setFlipped] = useState(false)
+  const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
-    setFlipped((flipped) => true)
+    setFlipped(true)
   }
 
   const advanceCard = () => {
@@ -35,7 +36,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const addCardToStudyList = () => {
     if (!toStudyList.includes(card)) {
       setToStudyList([...toStudyList, card])
-
+      setSaved(true)
       // add to local storage
     }
   }
@@ -86,21 +87,22 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         <div className="back">
-          <div className="card-description">
-            <p>{card.desc}</p>
-          </div>
+          <p className="card-description">{card.desc}</p>
         </div>
       </section>
       {/* card options */}
       <section className="card-options">
         <div className="option-icons">
           <div
-            className="save-button icon"
+            className={`save-button icon ${saved && "greyed-out"}`}
             onClick={(event) => addCardToStudyList(event)}
           >
             💾
           </div>
-          <div onClick={flipCard} className="flip-button icon">
+          <div
+            onClick={flipCard}
+            className={`flip-button icon ${flipped && "greyed-out"}`}
+          >
             🔄
           </div>
         </div>
