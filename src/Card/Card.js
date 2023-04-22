@@ -5,7 +5,7 @@ import { Carousel } from "../Context/Context"
 import { Database } from "../Context/Context"
 
 import "../App.scss"
-import "./Card.css"
+import "./Card.scss"
 
 export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
@@ -15,7 +15,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
-    setFlipped((flipped) => true)
+    setFlipped(true)
   }
 
   const advanceCard = () => {
@@ -87,9 +87,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         <div className="back">
-          <div className="card-description">
-            <p>{card.desc}</p>
-          </div>
+          <p className="card-description">{card.desc}</p>
         </div>
       </section>
       {/* card options */}
