@@ -12,6 +12,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [toStudyList, setToStudyList] = useContext(StudyList)
   const [data] = useContext(Database)
   const [flipped, setFlipped] = useState(false)
+  const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
     setFlipped((flipped) => true)
@@ -35,7 +36,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const addCardToStudyList = () => {
     if (!toStudyList.includes(card)) {
       setToStudyList([...toStudyList, card])
-
+      setSaved(true)
       // add to local storage
     }
   }
@@ -95,12 +96,15 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
       <section className="card-options">
         <div className="option-icons">
           <div
-            className="save-button icon"
+            className={`save-button icon ${saved && "greyed-out"}`}
             onClick={(event) => addCardToStudyList(event)}
           >
             💾
           </div>
-          <div onClick={flipCard} className="flip-button icon">
+          <div
+            onClick={flipCard}
+            className={`flip-button icon ${flipped && "greyed-out"}`}
+          >
             🔄
           </div>
         </div>
