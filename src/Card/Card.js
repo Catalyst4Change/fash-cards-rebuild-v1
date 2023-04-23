@@ -15,7 +15,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
-    setFlipped((flipped) => !flipped)
+    setFlipped(false)
   }
 
   const advanceCard = () => {
