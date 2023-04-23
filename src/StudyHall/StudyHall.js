@@ -9,10 +9,8 @@ export const StudyHall = () => {
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("fash-cards-saved")) === null) {
-      console.log("empty storage")
       syncLocalStorageToStudyList()
     } else {
-      console.log("occupied storage")
       syncStudyListToLocalStorage()
     }
   }, [])

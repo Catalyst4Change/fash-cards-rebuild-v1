@@ -11,6 +11,10 @@ export const Game = () => {
   const [gameOver, setGameOver] = useState(false)
   const [resetTimer, setResetTimer] = useState(false)
 
+  const handleTimerEnd = () => {
+    setGameOver(true)
+  }
+
   return (
     <main>
       {gameOver ? (
@@ -27,7 +31,7 @@ export const Game = () => {
           <Timer
             resetTimer={resetTimer}
             setResetTimer={setResetTimer}
-            setGameOver={setGameOver}
+            onTimerEnd={handleTimerEnd}
           />
           <CardsContainer
             numAnswered={numAnswered}

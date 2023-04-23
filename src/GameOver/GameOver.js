@@ -19,7 +19,6 @@ export const GameOver = ({
     ratio: 0,
   })
 
-  // let savedData = JSON.parse(localStorage.getItem("fash-cards-pb"))
   const [savedData, setSavedData] = useState(
     JSON.parse(localStorage.getItem("fash-cards-pb"))
   )
@@ -45,31 +44,19 @@ export const GameOver = ({
     ratio: calculateCorrectRatio(),
   }
 
-  //save ratio to local
-  //display
-  //check if ratio AND answered is higher
-  //display new high score
-
   useEffect(() => {
-    console.log("one")
     setCurrentScore(calculateCurrentScore)
   }, [])
 
   useEffect(() => {
-    console.log("currentScore", currentScore)
-    console.log("savedData", savedData)
     if (
       currentScore.ratio >= savedData.ratio &&
       currentScore.answered >= savedData.answered
     ) {
-      console.log("new high score!")
       localStorage.setItem("fash-cards-pb", JSON.stringify(currentScore))
       setSavedData(currentScore)
     }
   }, [currentScore, savedData])
-
-  console.log(currentScore)
-  console.log(savedData)
 
   return (
     <main id="game-over" className="column">
