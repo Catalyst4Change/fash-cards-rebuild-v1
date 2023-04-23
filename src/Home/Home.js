@@ -1,8 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import "../App.scss"
 
 export const Home = () => {
+  useEffect(() => {
+    if (localStorage.getItem("fash-cards-pb") === null) {
+      localStorage.setItem(
+        "fash-cards-pb",
+        JSON.stringify({ answered: 0, correct: 0, ratio: 0 })
+      )
+    }
+  }, [])
+
   return (
     <main className="column">
       <span id="logo">🤬</span>

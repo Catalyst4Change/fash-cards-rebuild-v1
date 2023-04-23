@@ -8,7 +8,7 @@ export const StudyHall = () => {
   const [toStudyList, setToStudyList] = useContext(StudyList)
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("saved-fash-cards")) === null) {
+    if (JSON.parse(localStorage.getItem("fash-cards-saved")) === null) {
       console.log("empty storage")
       syncLocalStorageToStudyList()
     } else {
@@ -18,11 +18,11 @@ export const StudyHall = () => {
   }, [])
 
   const syncStudyListToLocalStorage = () => {
-    setToStudyList(JSON.parse(localStorage.getItem("saved-fash-cards")))
+    setToStudyList(JSON.parse(localStorage.getItem("fash-cards-saved")))
   }
 
   const syncLocalStorageToStudyList = () => {
-    localStorage.setItem("saved-fash-cards", JSON.stringify(toStudyList))
+    localStorage.setItem("fash-cards-saved", JSON.stringify(toStudyList))
   }
 
   useEffect(() => {

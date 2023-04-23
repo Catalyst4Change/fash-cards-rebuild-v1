@@ -8,7 +8,13 @@ import link from "../assets/icons8-external-link-30.png"
 import "../App.scss"
 import "./Card.scss"
 
-export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
+export const Card = ({
+  card,
+  numAnswered,
+  setNumAnswered,
+  numCorrect,
+  setNumCorrect,
+}) => {
   const [carouselIndex, setCarouselIndex] = useContext(Carousel)
   const [toStudyList, setToStudyList] = useContext(StudyList)
   const [data] = useContext(Database)
@@ -24,10 +30,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   }
 
   const checkCorrect = (event, symbol) => {
-    setAnswered((answered += 1))
+    setNumAnswered((numAnswered += 1))
     event.preventDefault()
     if (event.target.id === symbol) {
-      setCorrect((correct += 1))
+      setNumCorrect((numCorrect += 1))
       advanceCard()
     } else {
       setFlipped((flipped) => !flipped)
@@ -43,7 +49,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   }
 
   useEffect(() => {
-    localStorage.setItem("saved-fash-cards", JSON.stringify(toStudyList))
+    localStorage.setItem("fash-cards-saved", JSON.stringify(toStudyList))
   }, [toStudyList])
 
   const [answers, setAnswers] = useState([])
