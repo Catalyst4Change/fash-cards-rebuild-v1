@@ -3,6 +3,7 @@ import { shuffle } from "../components/shuffle.func"
 import { StudyList } from "../Context/Context"
 import { Carousel } from "../Context/Context"
 import { Database } from "../Context/Context"
+import link from "../assets/icons8-external-link-30.png"
 
 import "../App.scss"
 import "./Card.scss"
@@ -15,7 +16,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
-    setFlipped(false)
+    setFlipped(true)
   }
 
   const advanceCard = () => {
@@ -125,11 +126,12 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
             <button className="menu-button" onClick={advanceCard}>
               Next
             </button>
-            <button className="menu-button">
-              <a target="_blank" href={generateHTMLLink()}>
+            <form action={generateHTMLLink()} method="get" target="_blank">
+              <button type="submit" className="menu-button">
                 Read More
-              </a>
-            </button>
+                <img src={link} alt="link icon" />
+              </button>
+            </form>
           </>
         ) : (
           <div className="card-options">{createAnswerButtons()}</div>
