@@ -24,12 +24,11 @@
     transition: 500ms;
     transform: perspective(1000px) rotateY(var(--rotate-y, 0))
       translateY(var(--translate-y, 0));
-    &::after {
-      box-shadow: 5px 5px 10px black;
-    }
+    box-shadow: 5px 5px 10px black;
 
     &.flip {
       --rotate-y: 180deg;
+      box-shadow: -5px 5px 10px black;
     }
 
     .front {

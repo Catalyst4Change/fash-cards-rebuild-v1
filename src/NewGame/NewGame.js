@@ -11,7 +11,7 @@ export const NewGame = () => {
         on.
       </p>
       <p>
-        Clicking the 💾 will save that card in your Saved Cards list to study
+        Clicking the 💾 will save that card in your Study Hall list to view
         later.
       </p>
       <p>

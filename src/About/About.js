@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "../App.scss"
+import link from "../../src/assets/icons8-external-link-30.png"
 
 export const About = () => {
   return (
@@ -18,14 +19,14 @@ export const About = () => {
         As a patriotic antifascist, I feel it is my duty to educate and inspire
         my country to recognize the threat posed by fascist & white supremacist
         ideologies and organizations. Use this app as a tool to quickly
-        recognize the signs & symbols of increasingly bold hate-groups. You may
-        be unpleasantly surprised how many are present in plain view on any
-        given day.
+        recognize the signs & symbols of these increasingly bold hate-groups.
+        You may be unpleasantly surprised how many are present in plain view on
+        any given day.
       </p>
       <p>
         Unfortunately the data from ADL is a little outdated and far from
         complete. This list does not contain any references to Q-Anon, Stop The
-        Steal, or other MAGA conspiracies. Nor does it mention Proud Boys,
+        Steal, or other MAGA conspiracies; nor does it mention Proud Boys,
         3%ers, Patriot Prayer or any modern militia movements. Care must be
         taken to quantify and label these organizations.
       </p>
@@ -34,7 +35,8 @@ export const About = () => {
       </Link>
       <form action="https://www.adl.org/" method="get" target="_blank">
         <button className="menu-button" type="submit">
-          ADL.ORG
+          Visit ADL.ORG
+          <img src={link} alt="link icon" />
         </button>
       </form>
     </main>

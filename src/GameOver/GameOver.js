@@ -2,7 +2,7 @@ import React from "react"
 import "./GameOver.css"
 import { Link } from "react-router-dom"
 import "../App.scss"
-
+import link from "../assets/icons8-external-link-30.png"
 export const GameOver = ({
   answered,
   setAnswered,
@@ -42,7 +42,12 @@ export const GameOver = ({
         <Link to="/study-hall">
           <button className="menu-button">Study Hall</button>
         </Link>
-        <button className="menu-button">Visit the ADL</button>
+        <form action="https://www.adl.org/" method="get" target="-blank">
+          <button type="submit" className="menu-button">
+            Visit the ADL
+            <img src={link} alt="link icon" />
+          </button>
+        </form>
       </nav>
     </main>
   )

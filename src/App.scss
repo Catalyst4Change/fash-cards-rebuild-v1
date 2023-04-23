@@ -76,13 +76,23 @@ p {
 }
 
 .menu-button {
+  appearance: none;
+  -webkit-appearance: none;
+  color: black;
   background-color: white;
   font-size: 1.5em;
+  font-weight: 400;
   width: $card-width;
   margin: 0 auto 5% auto;
   border-radius: 0.5em;
   border: none;
   box-shadow: 5px 5px 10px black;
+
+  img {
+    height: 0.8em;
+    width: 0.8em;
+    margin-left: 0.5em;
+  }
 }
 
 .greyed-out {
