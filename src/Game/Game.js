@@ -6,8 +6,8 @@ import { CardsContainer } from "../CardsContainer/CardsContainer"
 import { GameOver } from "../GameOver/GameOver"
 
 export const Game = () => {
-  const [answered, setAnswered] = useState(0)
-  const [correct, setCorrect] = useState(0)
+  const [numAnswered, setNumAnswered] = useState(0)
+  const [numCorrect, setNumCorrect] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const [resetTimer, setResetTimer] = useState(false)
 
@@ -15,10 +15,10 @@ export const Game = () => {
     <main>
       {gameOver ? (
         <GameOver
-          answered={answered}
-          setAnswered={setAnswered}
-          correct={correct}
-          setCorrect={setCorrect}
+          numAnswered={numAnswered}
+          setNumAnswered={setNumAnswered}
+          numCorrect={numCorrect}
+          setNumCorrect={setNumCorrect}
           setGameOver={setGameOver}
           setResetTimer={setResetTimer}
         />
@@ -30,10 +30,10 @@ export const Game = () => {
             setGameOver={setGameOver}
           />
           <CardsContainer
-            answered={answered}
-            setAnswered={setAnswered}
-            correct={correct}
-            setCorrect={setCorrect}
+            numAnswered={numAnswered}
+            setNumAnswered={setNumAnswered}
+            numCorrect={numCorrect}
+            setNumCorrect={setNumCorrect}
           />
         </>
       )}

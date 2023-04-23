@@ -1,40 +1,92 @@
-import React from "react"
-import "./GameOver.css"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import "../App.scss"
 import link from "../assets/icons8-external-link-30.png"
+import "../App.scss"
+import "./GameOver.scss"
+import isEqual from "lodash.isequal"
+
 export const GameOver = ({
-  answered,
-  setAnswered,
-  correct,
-  setCorrect,
+  numAnswered,
+  setNumAnswered,
+  numCorrect,
+  setNumCorrect,
   setGameOver,
   setResetTimer,
 }) => {
+  const [currentScore, setCurrentScore] = useState({
+    correct: 0,
+    answered: 0,
+    ratio: 0,
+  })
+
+  // let savedData = JSON.parse(localStorage.getItem("fash-cards-pb"))
+  const [savedData, setSavedData] = useState(
+    JSON.parse(localStorage.getItem("fash-cards-pb"))
+  )
+
   const restartGame = () => {
-    setAnswered(0)
-    setCorrect(0)
+    setNumAnswered(0)
+    setNumCorrect(0)
     setGameOver(false)
     setResetTimer(true)
   }
 
   const calculateCorrectRatio = () => {
-    const correctRatio = ((correct / answered) * 100).toFixed(0)
-    if (correctRatio >= 0) {
-      return correctRatio
-    } else {
+    if (numAnswered === 0) {
       return 0
+    } else {
+      return Number(((numCorrect / numAnswered) * 100).toFixed(0))
     }
   }
+
+  let calculateCurrentScore = {
+    correct: numCorrect,
+    answered: numAnswered,
+    ratio: calculateCorrectRatio(),
+  }
+
+  //save ratio to local
+  //display
+  //check if ratio AND answered is higher
+  //display new high score
+
+  useEffect(() => {
+    console.log("one")
+    setCurrentScore(calculateCurrentScore)
+  }, [])
+
+  useEffect(() => {
+    console.log("currentScore", currentScore)
+    console.log("savedData", savedData)
+    if (
+      currentScore.ratio >= savedData.ratio &&
+      currentScore.answered >= savedData.answered
+    ) {
+      console.log("new high score!")
+      localStorage.setItem("fash-cards-pb", JSON.stringify(currentScore))
+      setSavedData(currentScore)
+    }
+  }, [currentScore, savedData])
+
+  console.log(currentScore)
+  console.log(savedData)
 
   return (
     <main id="game-over" className="column">
       <h2>Out of time.</h2>
-      <p>
-        You got {correct} out of {answered} correct for a score of{" "}
-        {calculateCorrectRatio()}%.
-      </p>
-      <p>Keep up the good work, comrade.</p>
+      <h3 className="center">
+        You got {currentScore.correct} out of {currentScore.answered} correct
+        for a score of {currentScore.ratio}%.
+      </h3>
+      {isEqual(currentScore, savedData) ? (
+        <h3>This is your new best score!</h3>
+      ) : (
+        <h3 className="center">
+          Your personal best is {savedData.correct} out of {savedData.answered}{" "}
+          for {savedData.ratio}%
+        </h3>
+      )}
+      <h3 className="center">Keep up the good work, comrade.</h3>
       <nav className="nav-menu">
         <button className="menu-button" onClick={restartGame}>
           Start Over

@@ -4,7 +4,7 @@ import "./Timer.css"
 export const Timer = ({ resetTimer, setResetTimer, setGameOver }) => {
   const [seconds, setSeconds] = useState(60)
 
-  seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000)
+  seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 100)
 
   if (seconds === 0) {
     setGameOver(true)
