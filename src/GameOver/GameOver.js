@@ -19,7 +19,10 @@ export const GameOver = ({
     ratio: 0,
   })
 
-  let savedData = JSON.parse(localStorage.getItem("fash-cards-pb"))
+  // let savedData = JSON.parse(localStorage.getItem("fash-cards-pb"))
+  const [savedData, setSavedData] = useState(
+    JSON.parse(localStorage.getItem("fash-cards-pb"))
+  )
 
   const restartGame = () => {
     setNumAnswered(0)
@@ -29,11 +32,10 @@ export const GameOver = ({
   }
 
   const calculateCorrectRatio = () => {
-    const correctRatio = ((numCorrect / numAnswered) * 100).toFixed(0)
-    if (correctRatio >= 0) {
-      return Number(correctRatio)
-    } else {
+    if (numAnswered === 0) {
       return 0
+    } else {
+      return Number(((numCorrect / numAnswered) * 100).toFixed(0))
     }
   }
 
@@ -60,11 +62,11 @@ export const GameOver = ({
       currentScore.ratio >= savedData.ratio &&
       currentScore.answered >= savedData.answered
     ) {
-      console.log("winner ")
+      console.log("new high score!")
       localStorage.setItem("fash-cards-pb", JSON.stringify(currentScore))
-      savedData = currentScore
+      setSavedData(currentScore)
     }
-  }, [currentScore])
+  }, [currentScore, savedData])
 
   console.log(currentScore)
   console.log(savedData)
