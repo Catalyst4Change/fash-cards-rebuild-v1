@@ -15,7 +15,7 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
   const [saved, setSaved] = useState(false)
 
   const flipCard = () => {
-    setFlipped(true)
+    setFlipped((flipped) => !flipped)
   }
 
   const advanceCard = () => {
@@ -98,10 +98,10 @@ export const Card = ({ card, answered, setAnswered, correct, setCorrect }) => {
           </div>
         </div>
         <div className="back">
-          <span className="card-description">
+          <div className="card-description">
             {card.desc}
             <div className="scroll-shadow" />
-          </span>
+          </div>
         </div>
       </section>
       {/* card options */}

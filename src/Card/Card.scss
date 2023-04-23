@@ -8,6 +8,7 @@
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+
   .card {
     display: flex;
     flex-direction: column;
@@ -18,36 +19,44 @@
     border-radius: 1em;
     width: $card-width;
     margin: 5% auto;
+
     transform-style: preserve-3d;
     transition: 500ms;
     transform: perspective(1000px) rotateY(var(--rotate-y, 0))
       translateY(var(--translate-y, 0));
-    box-shadow: 5px 5px 10px black;
+    &::after {
+      box-shadow: 5px 5px 10px black;
+    }
 
     &.flip {
       --rotate-y: 180deg;
     }
+
     .front {
       padding: 10%;
       position: absolute;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      transform: translateZ(1px);
+      -webkit-transform: translateZ(1px);
     }
+
     .back {
-      padding: 10% 5%;
+      padding: 10%;
       position: absolute;
-      transform: rotateY(180deg);
+      transform: rotateY(180deg) translateZ(1px);
+      -webkit-transform: rotateY(180deg) translateZ(1px);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      perspective: 0;
-      -webkit-perspective: 0;
-      -webkit-transform: rotateY(180deg);
-      visibility: visible;
+      z-index: 1;
+
       .card-description {
         height: 350px;
         overflow: scroll;
-        visibility: visible;
+        visibility: visible !important;
         width: auto;
+        z-index: 10;
+
         .scroll-shadow {
           position: -webkit-sticky;
           position: sticky;
