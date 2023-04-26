@@ -23,6 +23,4 @@ With the data in hand, I built a very simple REST server to return the entire ar
 Now the fun part! I was able to consume my own API and map through it creating a 'card' for each data object. To make it engaging, I added a carousel that moved through the cards and a flip animation to separate the image and the description. This gives a sense of motion and completion as you guess the answer to each card.
 
 ## Roses & Thorns
-As 
-
-
+As with all of my projects I had many challenges, followed by celebrations for overcoming them.
