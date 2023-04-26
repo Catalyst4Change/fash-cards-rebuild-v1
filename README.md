@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Fash Cards
+This project originated as an individual [Showcase Project](https://frontend.turing.edu/projects/module-3/showcase.html) in the course of my (Turing School)[https://turing.edu] curriculum. Since then I have entirely rebuilt it and deployed it as a standalone web-app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The assignment:
+- Consume an API and display its data
+- Allow users to control or manipulate the data in some way
+- Display multiple views handled by React Router
+- Deploy onto a hosting service
 
-## Available Scripts
+## My Project:
+I knew from the start that I wanted to build an antifascist flash-card app using the ADL's (Hate Symbol Database)[https://www.adl.org/resources/hate-symbols/search]. However, the ADL unfortunately does not provide this data as an API. In order to use this information, I would need to build...
+- A web-scraper to obtain the information
+- An Express server to have that information available as an API
+- The flash-card app itself, which would include the ability to save cards
 
-In the project directory, you can run:
+### Puppeteer
+Step one was to learn how to scrape the information I wanted from someone else's website. I utilized (Puppeteer)[https://pptr.dev] as a headless browser to access (ADL.org)[https://www.adl.org]. I scanned the page looking for specific HTML class names, captured the relevant data, and added it to an array. Repeat 214 times for each data type (symbol name, image, description), collate the resulting arrays into a single JSON file, and save it to the root folder.
 
-### `npm start`
+### Express
+With the data in hand, I built a very simple REST server to return the entire array. This became my read-only backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### React
+Now the fun part! I was able to consume my own API and map through it creating a 'card' for each data object. To make it engaging, I added a carousel that moved through the cards and a flip animation to separate the image and the description. This gives a sense of motion and completion as you guess the answer to each card.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Roses & Thorns
+As 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
