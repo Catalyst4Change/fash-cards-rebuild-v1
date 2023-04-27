@@ -36,8 +36,9 @@ function App() {
   return (
     <main id="app">
       <div id="background">{buildTextWall()}</div>
+
       <header>
-        <h1 id="banner" className="row">
+        <h1 id="banner" className="android row anarchy">
           FASH-CARDS
         </h1>
       </header>
