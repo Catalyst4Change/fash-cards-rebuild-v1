@@ -15,6 +15,9 @@ h1 {
   margin: 0;
 }
 
+h2 {
+}
+
 html {
   margin: 0;
 }
@@ -24,14 +27,12 @@ p {
 }
 
 #app {
-  font-size: 1.2em;
-  background: lightblue;
-  background-repeat: repeat;
   width: 400px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .column {
@@ -42,6 +43,10 @@ p {
   height: 100%;
 }
 
+.center {
+  text-align: center;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -49,18 +54,21 @@ p {
   align-items: center;
 }
 
-.test-border {
-  border: 2px red dashed;
-}
-
 #logo {
   font-size: 13em;
 }
 
+#background {
+  position: absolute;
+  z-index: -1;
+  width: 399px;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #banner {
   background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  color: red;
 }
 
 .nav-menu {
@@ -74,26 +82,43 @@ p {
   height: -moz-fit-content;
   height: fit-content;
   width: 400px;
+  margin-bottom: 5%;
 }
 
 .menu-button {
+  -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
   color: black;
   background-color: white;
-  font-size: 1.5em;
+  font-size: 1.1em;
   font-weight: 400;
   width: $card-width;
-  margin: 0 auto 5% auto;
-  border-radius: 0.5em;
+  border-radius: 10px;
   border: none;
+  margin: 2% auto;
   box-shadow: 5px 5px 10px black;
+
+  &:hover {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    box-shadow: 5px 5px 10px white;
+  }
 
   img {
     height: 0.8em;
     width: 0.8em;
     margin-left: 0.5em;
   }
+}
+
+.blur {
+  background-color: rgba(255, 255, 255, 0.499);
+  backdrop-filter: blur(5px);
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin: 5% auto 5% auto;
 }
 
 .greyed-out {

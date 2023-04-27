@@ -61,23 +61,32 @@ export const GameOver = ({
   return (
     <main id="game-over" className="column">
       <h2>Out of time.</h2>
-      <h3 className="center">
-        You got {currentScore.correct} out of {currentScore.answered} correct
-        for a score of {currentScore.ratio}%.
-      </h3>
-      {isEqual(currentScore, savedData) ? (
-        <h3>This is your new best score!</h3>
-      ) : (
+      <div className="blur">
         <h3 className="center">
-          Your personal best is {savedData.correct} out of {savedData.answered}{" "}
-          for {savedData.ratio}%
+          Your score is:
+          <br />
+          {currentScore.correct} out of {currentScore.answered} correct <br />
+          for a score of {currentScore.ratio}%.
         </h3>
-      )}
-      <h3 className="center">Keep up the good work, comrade.</h3>
+        {isEqual(currentScore, savedData) ? (
+          <h3 className="center">This is your new best score!</h3>
+        ) : (
+          <h3 className="center">
+            Your personal best is: <br />
+            {savedData.correct} out of {savedData.answered} for{" "}
+            {savedData.ratio}%
+          </h3>
+        )}
+        <h3 className="center">Keep up the good work!</h3>
+      </div>
+
       <nav className="nav-menu">
         <button className="menu-button" onClick={restartGame}>
           Start Over
         </button>
+        <Link to="/">
+          <button className="menu-button">Home</button>
+        </Link>
         <Link to="/study-hall">
           <button className="menu-button">Study Hall</button>
         </Link>

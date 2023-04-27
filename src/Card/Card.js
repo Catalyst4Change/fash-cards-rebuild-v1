@@ -71,7 +71,7 @@ export const Card = ({
       return (
         <button
           key={"button" + index}
-          className="menu-button"
+          className="menu-button answer-button"
           id={button}
           onClick={(event) => checkCorrect(event, card.symbol)}
         >
@@ -112,21 +112,23 @@ export const Card = ({
         </div>
       </section>
       {/* card options */}
-      <section className="card-options">
-        <div className="option-icons">
-          <div
-            className={`save-button icon ${saved && "greyed-out"}`}
-            onClick={(event) => addCardToStudyList(event)}
-          >
-            💾
-          </div>
-          <div
-            onClick={flipCard}
-            className={`flip-button icon ${flipped && "greyed-out"}`}
-          >
-            🔄
-          </div>
+      <section className="option-icons">
+        <span></span>
+        <div
+          className={`save-button icon ${saved && "greyed-out"}`}
+          onClick={(event) => addCardToStudyList(event)}
+        >
+          💾
         </div>
+        <div
+          onClick={flipCard}
+          className={`flip-button icon ${flipped && "greyed-out"}`}
+        >
+          🔄
+        </div>
+        <span></span>
+      </section>
+      <section className="card-options">
         {flipped ? (
           <>
             <button className="menu-button" onClick={advanceCard}>
@@ -140,7 +142,7 @@ export const Card = ({
             </form>
           </>
         ) : (
-          <div className="card-options">{createAnswerButtons()}</div>
+          <div className="card-answers">{createAnswerButtons()}</div>
         )}
       </section>
     </main>

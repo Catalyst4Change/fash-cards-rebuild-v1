@@ -4,6 +4,7 @@ import "./Game.css"
 import { Timer } from "../components/Timer/Timer"
 import { CardsContainer } from "../CardsContainer/CardsContainer"
 import { GameOver } from "../GameOver/GameOver"
+import { ScrollToTop } from "../components/ScrollToTop"
 
 export const Game = () => {
   const [numAnswered, setNumAnswered] = useState(0)
@@ -17,6 +18,7 @@ export const Game = () => {
 
   return (
     <main>
+      <ScrollToTop />
       {gameOver ? (
         <GameOver
           numAnswered={numAnswered}
