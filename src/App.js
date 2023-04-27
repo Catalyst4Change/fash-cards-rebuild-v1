@@ -10,13 +10,13 @@ import { StudyHall } from "./StudyHall/StudyHall"
 import ScrollingText from "./TextWall/TextWall"
 import data from "./data.json"
 import { shuffle } from "./components/shuffle.func"
-import { useState } from "react"
+import { removeParens } from "./components/removeParens.func"
 
 function App() {
   const scrollNumber = Array.from(Array(30).keys())
   const getSymbolNames = () => {
     return data.map((object) => {
-      return object.symbol + " • "
+      return removeParens(object.symbol) + " • "
     })
   }
 
@@ -35,8 +35,7 @@ function App() {
 
   return (
     <main id="app">
-      {/* <div id="background">{buildTextWall()}</div> */}
-      <ScrollingText text={getSymbolNames()} lines={25} speed={1} />
+      <div id="background">{buildTextWall()}</div>
       <header>
         <h1 id="banner" className="row">
           FASH-CARDS
