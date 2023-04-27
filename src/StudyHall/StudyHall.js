@@ -3,6 +3,7 @@ import { StudyList } from "../Context/Context"
 import { Link } from "react-router-dom"
 import "../App.scss"
 import "./StudyHall.scss"
+import { ScrollToTop } from "../components/ScrollToTop"
 
 export const StudyHall = () => {
   const [toStudyList, setToStudyList] = useContext(StudyList)
@@ -63,16 +64,22 @@ export const StudyHall = () => {
 
   return (
     <main id="study-hall">
+      <ScrollToTop />
       {toStudyList.length === 0 && (
-        <p>
-          Click on the 💾 icon under a flash card to save it to your study list.
-        </p>
+        <div className="blur">
+          <p>
+            Click on the 💾 icon under a flash card to save it to your study
+            list.
+          </p>
+        </div>
       )}
       <div>{displayCardsToStudy()}</div>
       <div className="column center">
-        <Link to="/">
-          <button className="menu-button">Back</button>
-        </Link>
+        <nav className="nav-menu">
+          <Link to="/">
+            <button className="menu-button">Back</button>
+          </Link>
+        </nav>
       </div>
     </main>
   )

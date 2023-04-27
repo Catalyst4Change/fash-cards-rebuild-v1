@@ -2,10 +2,12 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../App.scss"
 import link from "../../src/assets/icons8-external-link-30.png"
+import { ScrollToTop } from "../components/ScrollToTop"
 
 export const About = () => {
   return (
     <section id="about" className="column">
+      <ScrollToTop />
       <h2 className="center">About</h2>
       <div className="blur">
         <p>

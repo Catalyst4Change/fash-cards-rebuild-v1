@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import "../App.scss"
+import { ScrollToTop } from "../components/ScrollToTop"
 
 export const Home = () => {
   useEffect(() => {
@@ -13,7 +14,8 @@ export const Home = () => {
   }, [])
 
   return (
-    <main className="column">
+    <section className="column">
+      <ScrollToTop />
       <span id="logo">🤬</span>
       <nav className="nav-menu">
         <Link to="/new-game">
@@ -26,6 +28,6 @@ export const Home = () => {
           <button className="menu-button">About</button>
         </Link>
       </nav>
-    </main>
+    </section>
   )
 }
