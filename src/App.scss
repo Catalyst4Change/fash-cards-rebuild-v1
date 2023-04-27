@@ -25,7 +25,7 @@ p {
 
 #app {
   font-size: 1.2em;
-  background: lightblue;
+  // background: lightblue;
   background-repeat: repeat;
   width: 400px;
   height: -webkit-fit-content;
@@ -49,18 +49,21 @@ p {
   align-items: center;
 }
 
-.test-border {
-  border: 2px red dashed;
-}
-
 #logo {
   font-size: 13em;
 }
 
+#background {
+  position: absolute;
+  z-index: -1;
+  width: 399px;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #banner {
   background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  color: red;
 }
 
 .nav-menu {
