@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import "../App.scss"
 import { ScrollToTop } from "../components/ScrollToTop"
-import arrows from "../assets/Untitled.png"
 
 export const Home = () => {
   useEffect(() => {
@@ -17,9 +16,7 @@ export const Home = () => {
   return (
     <section className="column">
       <ScrollToTop />
-      <div className="logo-container">
-        <img src={arrows} alt="iron front logo" />
-      </div>
+      <div className="logo-container">🤬</div>
       <nav className="nav-menu">
         <Link to="/new-game">
           <button className="menu-button">New Game</button>
