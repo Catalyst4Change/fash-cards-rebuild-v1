@@ -21,13 +21,6 @@ function App() {
   }
 
   const buildTextWall = () => {
-    const checkOdd = (number) => {
-      if (number % 2 == 0) {
-        return false
-      } else {
-        return true
-      }
-    }
     return scrollNumber.map((number, i) => {
       const randomSpeed = Math.random() * (2 - 0.5) + 0.5
       return (
@@ -35,7 +28,6 @@ function App() {
           text={shuffle(getSymbolNames())}
           speed={randomSpeed}
           key={number}
-          isOdd={checkOdd(number)}
         />
       )
     })
@@ -43,8 +35,8 @@ function App() {
 
   return (
     <main id="app">
-      <div id="background">{buildTextWall()}</div>
-
+      {/* <div id="background">{buildTextWall()}</div> */}
+      <ScrollingText text={getSymbolNames()} lines={25} speed={1} />
       <header>
         <h1 id="banner" className="row">
           FASH-CARDS
