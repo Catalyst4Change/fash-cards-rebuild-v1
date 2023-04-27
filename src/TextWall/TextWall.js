@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from "react"
 import "./TextWall.scss"
 
-const ScrollingText = ({ text, speed, isOdd }) => {
+const ScrollingText = ({ text, speed }) => {
   const containerRef = useRef(null)
   const contentRef = useRef(null)
-  console.log(isOdd)
 
   useEffect(() => {
     const containerWidth = containerRef.current.clientWidth
