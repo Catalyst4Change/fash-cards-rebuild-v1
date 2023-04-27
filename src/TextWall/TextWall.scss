@@ -1,18 +1,14 @@
 .ticker-container {
   overflow: hidden;
   width: 125vw;
-  transform: translateX(-20%) translateY(-100px) rotate(-20deg);
-  font-size: 1.5em;
-  .red {
-    color: white;
-    background-color: red;
-  }
-  .white {
-    color: darkblue;
-    background-color: white;
-  }
+  transform: translateX(-10%) translateY(-100px) rotate(-20deg);
+  font-size: 1.8em;
   .ticker {
+    height: 1.2em;
+    background-color: whitesmoke;
+    color: gray;
     white-space: nowrap;
     display: inline-block;
+    box-shadow: 1px 3px 5px gray inset;
   }
 }

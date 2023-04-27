@@ -35,7 +35,7 @@ const ScrollingText = ({ text, speed, isOdd }) => {
 
   return (
     <div ref={containerRef} className="ticker-container">
-      <div className={`ticker ${isOdd ? "red" : "white"}`} ref={contentRef}>
+      <div className="ticker" ref={contentRef}>
         {text}
       </div>
     </div>

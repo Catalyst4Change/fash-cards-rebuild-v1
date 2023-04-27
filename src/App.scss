@@ -15,6 +15,9 @@ h1 {
   margin: 0;
 }
 
+h2 {
+}
+
 html {
   margin: 0;
 }
@@ -24,14 +27,12 @@ p {
 }
 
 #app {
-  font-size: 1.2em;
-  // background: lightblue;
-  background-repeat: repeat;
   width: 400px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .column {
@@ -40,6 +41,10 @@ p {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.center {
+  text-align: center;
 }
 
 .row {
@@ -80,6 +85,7 @@ p {
 }
 
 .menu-button {
+  -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
   color: black;
@@ -87,16 +93,31 @@ p {
   font-size: 1.5em;
   font-weight: 400;
   width: $card-width;
-  margin: 0 auto 5% auto;
-  border-radius: 0.5em;
+  border-radius: 10px;
   border: none;
+  margin: 2%;
   box-shadow: 5px 5px 10px black;
+
+  &:hover {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    box-shadow: 5px 5px 10px white;
+  }
 
   img {
     height: 0.8em;
     width: 0.8em;
     margin-left: 0.5em;
   }
+}
+
+.blur {
+  background-color: rgba(255, 255, 255, 0.499);
+  backdrop-filter: blur(5px);
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-bottom: 5%;
 }
 
 .greyed-out {
